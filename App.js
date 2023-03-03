@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, ActivityIndicator, Image } from "react-native";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
+import { FlatList } from "react-native-web";
 
 const myAPI = "f78a09c17d23daf101868fff5e523cc0";
 
@@ -55,7 +56,7 @@ export default function App() {
       {weatherIcon ? (
         <Image
           source={{
-            uri: `https://openweathermap.org/img/wn/${weatherIcon}.png`,
+            uri: `https://openweathermap.org/img/wn/${weatherIcon}@4x.png`,
           }}
           style={{ width: 100, height: 100 }}
         />
@@ -63,7 +64,9 @@ export default function App() {
         <ActivityIndicator size="large" color="#00ff00" />
       )}
 
-      <Text> Météo dans les prochains jours </Text>
+      <Text>Le temps changeras dans la journée : </Text>
+      {/* Affichage de plusieurs information concernant la méteo */}
+        
     </View>
   );
 }
