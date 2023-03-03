@@ -8,7 +8,6 @@ const myAPI = "f78a09c17d23daf101868fff5e523cc0";
 export default function App() {
   const [location, setLocation] = useState(null);
   const [cityData, setCityData] = useState("");
-  const [weatherData, setWeatherData] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
 
   const getWeather = async (lat, long) => {
@@ -63,7 +62,8 @@ export default function App() {
       ) : (
         <ActivityIndicator size="large" color="#00ff00" />
       )}
-      <StatusBar style="auto" />
+
+      <Text> Météo dans les prochains jours </Text>
     </View>
   );
 }
