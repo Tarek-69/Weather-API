@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import { StyleSheet, Text, View, ActivityIndicator, Image } from "react-native";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
 
@@ -9,6 +9,7 @@ export default function App() {
   const [location, setLocation] = useState(null);
   const [cityData, setCityData] = useState("");
   const [weatherData, setWeatherData] = useState("");
+  const [weatherIcon, setWeatherIcon] = useState("");
 
   const getWeather = async (lat, long) => {
     const response = await fetch(
@@ -16,6 +17,7 @@ export default function App() {
     );
     const data = await response.json();
     setCityData(data);
+    setWeatherIcon(data.weather[0].icon);
     console.log(data);
   };
 
@@ -51,7 +53,16 @@ export default function App() {
       ) : (
         <ActivityIndicator size="large" color="#00ff00" />
       )}
-
+      {weatherIcon ? (
+        <Image
+          source={{
+            uri: `https://openweathermap.org/img/wn/${weatherIcon}.png`,
+          }}
+          style={{ width: 100, height: 100 }}
+        />
+      ) : (
+        <ActivityIndicator size="large" color="#00ff00" />
+      )}
       <StatusBar style="auto" />
     </View>
   );
