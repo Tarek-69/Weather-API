@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ActivityIndicator, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ActivityIndicator,
+  Image,
+  FlatList,
+} from "react-native";
 import * as Location from "expo-location";
 import { useEffect, useState } from "react";
 
@@ -77,6 +84,8 @@ export default function App() {
       ) : (
         <ActivityIndicator size="large" color="#00ff00" />
       )}
+      {/* Affichage de la température*/}
+
       <StatusBar style="auto" />
     </View>
   );
