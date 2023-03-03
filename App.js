@@ -66,7 +66,17 @@ export default function App() {
 
       <Text>Le temps changeras dans la journée : </Text>
       {/* Affichage de plusieurs information concernant la méteo */}
-        
+      <View>
+        <Text>Méteo du matin</Text>
+      </View>
+
+      <View>
+        <Text>Méteo du midi</Text>
+      </View>
+
+      <View>
+        <Text>Méteo du soir </Text>
+      </View>
     </View>
   );
 }
